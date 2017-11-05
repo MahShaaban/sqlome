@@ -1,0 +1,28 @@
+Package: sqlome
+Title: Build SQLite tables of microRNAs and Transcription Factors-gene Correlations
+Version: 0.0.0.9000
+Authors@R: person("Mahmoud", "Ahmed",
+    email = "mahmoud.s.fahmy@students.kasralainy.edu.eg",
+    role = c("aut", "cre"))
+Description: Helper functions to obtain and build sqlite tables of regulome 
+    (microRNA and transcription factors) gene correlations in cancer. Mainly 
+    built to aid building miRCancerdb and cRegulomedb.
+Depends: R (>= 3.4.2)
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
+Imports: RTCGA,
+    magrittr,
+    dplyr,
+    stringr,
+    reshape2,
+    readr,
+    RTCGA.miRNASeq,
+    RTCGA.rnaseq,
+    RTCGA.RPPA,
+    targetscan.Hs.eg.db,
+    org.Hs.eg.db,
+    AnnotationDbi,
+    stats
+Suggests: testthat
