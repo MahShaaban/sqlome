@@ -20,6 +20,6 @@ A character string of the cistrome cancer file name for a transcription factor
 Construct a file name for a Cistrome Cancer file
 }
 \examples{
-tf_fname('AFF4', dir = 'tmp/tf')
+tf_fname('AFF4', dir = 'tmp/tf/')
 
 }

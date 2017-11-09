@@ -183,6 +183,7 @@ rppa_tidy <- function(rppa) {
 #' @param mi A tidy matrix of microRNA expression data.
 #' @param m A tidy matrix of gene or protein expression data.
 #' @param cohort A charachter string of the TCGA ID.
+#' @param tidy A logical
 #'
 #' @return A tidy data.frame of four columns; miRBase ID, feature id, correlation and TCGA study name.
 #'
@@ -209,7 +210,7 @@ rppa_tidy <- function(rppa) {
 #' @importFrom stats cor setNames
 #'
 #' @export
-cor_make <- function(mi, m, cohort) {
+cor_make <- function(mi, m, cohort, tidy = TRUE) {
     # get patient bcr for microRNA and remove duplicates
     bcr_mi <- str_split(colnames(mi),
                         pattern = '\\-',
@@ -234,15 +235,17 @@ cor_make <- function(mi, m, cohort) {
     # calculate correlation
     c <- cor(t(m), t(mi))
 
-    # tidy correlation
-    nms <- c('feature', 'mirna_base', paste(cohort))
-    d <- melt(c) %>%
-        mutate(value = round(value, 2) * 100) %>%
-        filter(abs(value) >= 10) %>%
-        setNames(nms)
+    if(tidy == TRUE) {
+        # tidy correlation
+        nms <- c('feature', 'mirna_base', paste(cohort))
+        c <- melt(c) %>%
+            mutate(value = round(value, 2) * 100) %>%
+            filter(abs(value) >= 10) %>%
+            setNames(nms)
+    }
 
     # return tidy correlation data.frame
-    return(d)
+    return(c)
 }
 
 #' Get microRNA targets

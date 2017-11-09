@@ -4,7 +4,7 @@
 \alias{cor_make}
 \title{Make mircoRNA feature correlations}
 \usage{
-cor_make(mi, m, cohort)
+cor_make(mi, m, cohort, tidy = TRUE)
 }
 \arguments{
 \item{mi}{A tidy matrix of microRNA expression data.}
@@ -12,6 +12,8 @@ cor_make(mi, m, cohort)
 \item{m}{A tidy matrix of gene or protein expression data.}
 
 \item{cohort}{A charachter string of the TCGA ID.}
+
+\item{tidy}{A logical}
 }
 \value{
 A tidy data.frame of four columns; miRBase ID, feature id, correlation and TCGA study name.

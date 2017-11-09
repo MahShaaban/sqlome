@@ -35,7 +35,7 @@ tf_url <- function(tf, all = TRUE) {
 #' @return A character string of the cistrome cancer file name for a transcription factor
 #'
 #' @examples
-#' tf_fname('AFF4', dir = 'tmp/tf')
+#' tf_fname('AFF4', dir = 'tmp/tf/')
 #'
 #' @export
 tf_fname <- function(tf, dir, all = TRUE) {
