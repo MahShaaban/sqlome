@@ -18,6 +18,11 @@ cache:
 build_script:
   - travis-tool.sh install_deps
   - travis-tool.sh install_bioc_deps
+  - travis-tool.sh install_bioc RTCGA.miRNASeq
+  - travis-tool.sh install_bioc RTCGA.rnaseq
+  - travis-tool.sh install_bioc RTCGA.RPPA
+  - travis-tool.sh install_bioc targetscan.Hs.eg.db
+  - travis-tool.sh install_bioc org.Hs.eg.db
 
 test_script:
   - travis-tool.sh run_tests
